@@ -1,9 +1,19 @@
-function Product() {
+import Link from "next/link";
+function Product({ id = 100 }) {
   return (
     <>
-      <h1>Product 1</h1>
-      <h1>Product 2</h1>
-      <h1>Product 3</h1>
+      <Link href="/product/1">
+        <a>Product 1</a>
+      </Link>
+      <Link href="/product/2">
+        <a>Product 2</a>
+      </Link>
+      <Link href="/product/3">
+        <a>Product 3</a>
+      </Link>
+      <Link href={`/product/${id}`}>
+        <a>Product {id}</a>
+      </Link>
     </>
   );
 }
