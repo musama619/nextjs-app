@@ -11,3 +11,28 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. 
+
+## Topic Covered So far:
+
+### 1. Routing
+    - Page based routing
+    - Nested routes
+    - Dynamic routes
+    - Catch all routes
+    - Link component
+    - Custom 404 page
+
+### 2. Pre-rendering & Data Fetching
+    a. Static Generation
+        - Without data
+        - With data
+        - Incremental static generation
+        - Dynamic parameters when fetching data
+    b. Server-side Rendering
+        - Data fetching
+    
+    - Client side data  fetching
+    - Combining pre-rendering with client-side data fetching
+
+
+
