@@ -12,7 +12,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. 
 
-## Topic Covered So far:
+## Topics:
 
 ### 1. Routing
     - Page based routing
@@ -69,3 +69,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - When you navigate to page that's pre-rendered using getStaticProps, Next.js fetches the JSON file (pre-computed at build time) and uses it as the props to create the page component client-side.
 
 - Client-side page transitions will not call getStaticProps as only the exported JSON is used.
+
+
+### getStaticPaths fallback
+
+1. false
+   - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps.
+   - If fallback is set to false, then any paths not returned by getStaticProps will result in 404 page.
+
+2. true
+    - The paths returned from getStaticPaths will be rendered to HTML at build time by getStaticProps.
+    - The paths that have not been generated at build time will not result in a 404 page. Instead, Next.js will serve a "fallback" version of the page ont the first request to such a path.
+    - In the background, Next.js will statically generate the requested path HTML and JSON. This includes running getStaticProps.
+    - When that's done, the browser receives the JSON for the generated path. This will be used to automatically render the page with the required props. From the user's perspective, the page will be swapped from the fallback page to the full page.
+    - At the same time, Next.js kepps track of the new list of pre-rendered pages. Subsequent requests to the same path will serve the generated page, just like other pages pre-rendered at the build time.
